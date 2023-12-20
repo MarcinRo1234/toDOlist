@@ -63,3 +63,10 @@
     font-size: 15px;
     background-color: slategrey;
 }
+.tasks-array-list-element .done{
+    padding: 3px;
+    margin-left: 10px;
+}
+.tasks-array-list-element .fa-solid {
+    margin-left: 10px;
+}
