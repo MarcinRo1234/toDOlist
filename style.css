@@ -20,7 +20,7 @@
 .header-banner-hero {
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: var(--main-radius);
     z-index: -1;
 }
@@ -32,6 +32,11 @@
     z-index: 12;
     color:  white;
 }
+/* .header-banner-text .btn-end {
+    position: absolute;
+    top: 50%;
+    left: 50%; */
+/* } */
 .tasks {
     display: flex;
     justify-content: center;
@@ -82,4 +87,36 @@
 }
 .tasks-array-list-element .fa-solid {
     margin-left: 10px;
+}
+main .buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px auto;
+    
+}
+main .main-button {
+    padding: 15px;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.editing {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    width: 1200px;
+    background-color: lightcoral;
+    margin: 0 auto;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.editing .input2 {
+    border: 2px solid black;
+    border-radius: var(--main-radius);
+    height: 30px;
+    width: 900px;
 }
