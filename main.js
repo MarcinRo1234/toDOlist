@@ -3,14 +3,18 @@ const btnAdd = document.querySelector(".btn-add");
 const taskArrayList = document.querySelector(".tasks-array-list")
 const pCounter = document.querySelector(".counter");
 const btnEnd = document.querySelector(".btn-end");
+const btnGetInformation = document.querySelector(".btn-get-information");
+const summaryTasksDone = document.querySelector(".summary-tasks-done");
+const summaryTasksAll = document.querySelector(".summary-tasks-all");
 
 let counter = 0;
 let decrease = 0;
+let konkordat = 0;
 
 const removeLiElement = (e) => {
     e.target.parentNode.remove();
     decrease++;
-    pCounter.textContent = `Liczba wykonanych zadań : ${decrease}`;
+    summaryTasksDone.textContent = `Liczba wykonanych zadań : ${decrease}`;
     console.log("działą");
 }
 
@@ -38,17 +42,28 @@ const taskAdd = () => {
 };
 
 const endWork = () => {
+    konkordat++
     let data = new Date();
     console.log(data);
-    let NewDate = `${data.getDate()} : ${data.getMonth() + 1} : ${data.getFullYear()}`
+    let NewDate = `${data.getDate()} : ${data.getMonth() + 1} : ${data.getFullYear()}`;
     console.log(NewDate);
     localStorage.setItem(NewDate, decrease);
+    decrease = 0;
+    console.log(NewDate);
+    let total = localStorage.getItem(NewDate) * 1;
+    summaryTasksAll.textContent += total;
+    
 }
 
 console.log(counter);
 
+const getInformation = () => {
+   let kokon = localStorage.key
+   console.log(kokon);
 
+};
 
 
 btnAdd.addEventListener("click", taskAdd)
 btnEnd.addEventListener("click", endWork);
+btnGetInformation.addEventListener("click", getInformation);
