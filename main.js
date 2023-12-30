@@ -7,9 +7,17 @@ const btnGetInformation = document.querySelector(".btn-get-information");
 const summaryTasksDone = document.querySelector(".summary-tasks-done");
 const summaryTasksAll = document.querySelector(".summary-tasks-all");
 
+
 let counter = 0;
 let decrease = 0;
 let konkordat = 0;
+
+const tasksEditing = (e) => {
+    let editing = document.querySelector(".editing");
+    console.log(editing);
+    editing.style.display = "flex";
+    
+}
 
 const removeLiElement = (e) => {
     e.target.parentNode.remove();
@@ -27,12 +35,13 @@ const taskAdd = () => {
     let liElement = document.createElement("li");
     liElement.classList.add("tasks-array-list-element");
     // liElement.innerHTML = counter +"." +"  "+ inputValue +   `<i class="fa-solid fa-check"></i>` +   `<i class="fa-solid fa-x"></i>`;
-    liElement.innerHTML = counter + "." +"  " + inputValue + `<button class = "done">&#9989</button>`
+    liElement.innerHTML = counter + "." +"  " + inputValue + `<button class = "done">&#9989</button>` +`<button class = "edit">&#128396</button>`
     // liElement.textContent = counter +"   "+ inputValue;
     liElement.querySelector("button").addEventListener("click", removeLiElement);
+    liElement.querySelector(".edit").addEventListener("click", tasksEditing);
     taskArrayList.appendChild(liElement);
     
-
+    
     input.value="";
     console.log(counter);
     // const btnli =liElement.getElementsByClassName("fa-check");
@@ -64,6 +73,6 @@ const getInformation = () => {
 };
 
 
-btnAdd.addEventListener("click", taskAdd)
+btnAdd.addEventListener("click", taskAdd);
 btnEnd.addEventListener("click", endWork);
 btnGetInformation.addEventListener("click", getInformation);
